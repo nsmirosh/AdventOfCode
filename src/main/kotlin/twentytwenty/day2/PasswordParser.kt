@@ -1,4 +1,4 @@
-package day2
+package twentytwenty.day2
 
 import java.io.File
 import java.io.InputStream
@@ -8,7 +8,7 @@ data class Password(val min: Int, val max: Int, val letter: Char, val password: 
 fun main() {
 
     val inputStream: InputStream =
-        File("/Users/mykolamiroshnychenko/coding/studying/adventOfCode/src/main/kotlin/day2/passwordInput.txt").inputStream()
+        File("/Users/mykolamiroshnychenko/coding/studying/adventOfCode/src/main/kotlin/twentytwenty/day2/passwordInput.txt").inputStream()
 
     var rangeOfChars = 0..1
     inputStream.bufferedReader().forEachLine {
