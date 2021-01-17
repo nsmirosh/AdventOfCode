@@ -20,17 +20,10 @@ fun main() {
         val password = list[2]
 
 
-        val isFirstMatch = password[charRangeList[0].toInt().dec()] == charToFind[0]
-        val isSecondMatch = password[charRangeList[1].toInt().dec()] == charToFind[0]
+        val isFirstMatch = password[charRangeList.first().toInt().dec()] == charToFind.first()
+        val isSecondMatch = password[charRangeList[1].toInt().dec()] == charToFind.first()
 
         if (listOf(isFirstMatch, isSecondMatch).count {it} == 1) amountOfValidOnes++
-
-
-
-/*
-        if (password.count {
-                it.equals(charToFind.first())
-            } in rangeOfChars) amountOfValidOnes++*/
 
     }
     println("amountOfValidOnes = $amountOfValidOnes")
