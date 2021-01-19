@@ -49,16 +49,15 @@ fun traverseInPattern(horizontalStep: Int, verticalStep: Int): Int {
 
 
     var amountOfTrees = 0
-    var horizontalPosition = 0
+    var horizontalPos = 0
 
-    val splitBylines = completePicture
+    val pictureSplitByLines = completePicture
         .removeSuffix("\n")
         .split("\n")
 
-    for (i in 0..height step verticalStep) {
-        val line = splitBylines[i]
-        if (line[horizontalPosition] == '#') amountOfTrees++
-        horizontalPosition += horizontalStep
+    for (verticalPos in 0..height step verticalStep) {
+        if (pictureSplitByLines[verticalPos][horizontalPos] == '#') amountOfTrees++
+        horizontalPos += horizontalStep
     }
 
     //get the amount of iterations we can go based on the width of the part of map we have
