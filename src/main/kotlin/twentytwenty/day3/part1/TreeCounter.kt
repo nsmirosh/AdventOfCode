@@ -1,4 +1,4 @@
-package twentytwenty.day3
+package twentytwenty.day3.part1
 
 import java.io.File
 import java.io.InputStream
@@ -6,6 +6,7 @@ import java.io.InputStream
 const val horizontalStep = 3
 
 fun main() {
+    val startTime = System.currentTimeMillis()
     val inputStream: InputStream =
         File("/Users/mykolamiroshnychenko/coding/studying/adventOfCode/src/main/kotlin/twentytwenty/day3/input.txt").inputStream()
 
@@ -34,6 +35,7 @@ fun main() {
         }
         completePicture += "\n"
     }
+    
 
     var amountOfTrees = 0
     var horizontalPosition = 0
@@ -49,5 +51,12 @@ fun main() {
     //get the amount of iterations we can go based on the width of the part of map we have
     // divide the height by the amount of iterations we can go - and get the number of "parts" of map we have to add to get the "complete" picture
     // for each line - iterate till "\n" char and add the needed amount of lines based on the number above - don't forget to put the "\n char" at the end
+
+    val endTime = System.currentTimeMillis()
+    println("totalTime = ${endTime - startTime}")
 }
+
+
+
+
 
