@@ -4,15 +4,11 @@ import java.io.File
 import java.io.InputStream
 
 fun main() {
-
-    val setOfPaths =setOf(Pair(1, 1), Pair(3, 1), Pair(5, 1), Pair(7, 1), Pair(1, 2))
-    val result = setOfPaths.sumBy {
-        traverseInPattern(it.first, it.second)
-    }
-
+    val result = setOf(Pair(1, 1), Pair(3, 1), Pair(5, 1), Pair(7, 1), Pair(1, 2))
+        .map { traverseInPattern(it.first, it.second).toLong() }
+        .reduce { accumulatedBefore, currentNumber -> accumulatedBefore * currentNumber }
 
     println("result = $result")
-
 }
 
 fun traverseInPattern(horizontalStep: Int, verticalStep: Int): Int {
@@ -33,7 +29,8 @@ fun traverseInPattern(horizontalStep: Int, verticalStep: Int): Int {
 
     val width = inputString.indexOf("\n")
     val amountOfWidthIterationsTillNextNchar = width / horizontalStep
-    val amountOfPartsWeHaveToGlueTogether = height / amountOfWidthIterationsTillNextNchar
+
+    val amountOfPartsWeHaveToGlueTogether = height / amountOfWidthIterationsTillNextNchar + 1
 
     var completePicture = ""
 
@@ -47,7 +44,6 @@ fun traverseInPattern(horizontalStep: Int, verticalStep: Int): Int {
         completePicture += "\n"
     }
 
-
     var amountOfTrees = 0
     var horizontalPos = 0
 
@@ -56,7 +52,8 @@ fun traverseInPattern(horizontalStep: Int, verticalStep: Int): Int {
         .split("\n")
 
     for (verticalPos in 0..height step verticalStep) {
-        if (pictureSplitByLines[verticalPos][horizontalPos] == '#') amountOfTrees++
+        val horizontalLine = pictureSplitByLines[verticalPos]
+        if (horizontalLine[horizontalPos] == '#') amountOfTrees++
         horizontalPos += horizontalStep
     }
 
