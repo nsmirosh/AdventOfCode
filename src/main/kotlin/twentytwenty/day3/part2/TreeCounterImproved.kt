@@ -4,11 +4,13 @@ import java.io.File
 import java.io.InputStream
 
 fun main() {
-    val result = setOf(Pair(1, 1), Pair(3, 1), Pair(5, 1), Pair(7, 1), Pair(1, 2))
-        .map { traverseInPattern(it.first, it.second).toLong() }
-        .reduce { accumulatedBefore, currentNumber -> accumulatedBefore * currentNumber }
 
-    println("result = $result")
+    println(" result = ${
+        setOf(Pair(1, 1), Pair(3, 1), Pair(5, 1), Pair(7, 1), Pair(1, 2))
+            .map { traverseInPattern(it.first, it.second).toLong() }
+            .reduce { accumulatedBefore, currentNumber -> accumulatedBefore * currentNumber }}"
+    )
+
 }
 
 fun traverseInPattern(horizontalStep: Int, verticalStep: Int): Int {
